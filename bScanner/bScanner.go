@@ -48,7 +48,7 @@ func (b *bScanner) generateUrlCheckList() []string {
 
 	// single url
 	if url != "" {
-		// 检查前后缀，url -> http://url/ || https://url/
+		// url -> http://url/ || https://url/
 		url = urlCheck(url)
 		urlCheckList = append(urlCheckList, url)
 
@@ -72,11 +72,11 @@ func (b *bScanner) generateWordlist() []string {
 	fullWordlist := make([]string, 0)
 	domainWordlist := make([]string, 0)
 
-	// 生成静态字典
+	// add build-in wordlist
 	staticWordlist := generateStaticWordlist()
 	fullWordlist = append(fullWordlist, staticWordlist...)
 
-	// 添加域名相关字典
+	// generate wordlist base on url
 	if b.url != "" {
 		url := b.url
 		domainWordlist = generateDomainWordlist(url)
@@ -93,7 +93,7 @@ func (b *bScanner) generateWordlist() []string {
 	}
 	fullWordlist = append(fullWordlist, domainWordlist...)
 
-	// 添加自定义字典
+	// add custom wordlist 
 	customWordlist, err := readLines(b.dictFile)
 	if err != nil {
 		log.Fatalf("Error opening custom wordlist: %v", err)
