@@ -1,16 +1,3 @@
-/*
-single url scan : ./backupFileScanner -u https://www.example.com -o result.txt
-multiple urls scan : ./backupFileScanner -t 100 -f url.txt -o result.txt
-options:
-
-	-h --help 				check for usage help
-	-f --url-file 			multiple scan , each line of url should contain prefix http:// or https:// , default http://
-	-t --thread 			scanner threads
-	-u --url 				single url scan
-	-d --dict-file 			use custom wordlist
-	-o --output-file 		output filename
-	-p --proxy 				use proxy , eg : socks5://127.0.0.1:1080
-*/
 package main
 
 import (
