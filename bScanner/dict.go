@@ -53,6 +53,3 @@ func trimUrlPrefix(url string) string {
 	return url
 }
 
-/*
- host , host替换. 为“” ， host替换. 为_  , 域名词组， 域名去除前缀 ， 域名去除前缀，后面的. 替换为 _ , 域名词组第一个， 域名词组第二个
-*/
