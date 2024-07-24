@@ -7,7 +7,6 @@ import (
 	"strings"
 )
 
-// url前后缀处理
 func urlCheck(url string) string {
 
 	if !strings.HasSuffix(url, "/") {
