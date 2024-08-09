@@ -94,13 +94,14 @@ func (b *bScanner) generateWordlist() []string {
 	fullWordlist = append(fullWordlist, domainWordlist...)
 
 	// add custom wordlist 
-	customWordlist, err := readLines(b.dictFile)
-	if err != nil {
-		log.Fatalf("Error opening custom wordlist: %v", err)
-	}
-	fullWordlist = append(fullWordlist, customWordlist...)
+	if b.dictFile !=""{
+		customWordlist, err := readLines(b.dictFile)
+		if err != nil {
+			log.Fatalf("Error opening custom wordlist: %v", err)
+		}
+		fullWordlist = append(fullWordlist, customWordlist...)
 
-	fmt.Println(fullWordlist)
+	}
 	return fullWordlist
 }
 
